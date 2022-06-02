@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
 
-	implementation 'com.github.vmu2021:libreria-vessellog:34e0556d6f'
+	implementation 'com.github.vmu2021:libreria-vessellog:be74e10788'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	
