@@ -5,9 +5,7 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-//import javax.persistence.Table;
 
-import mdef.Alimentacion;
 import mdef.AlimentacionInterfaz;
 
 @Entity
