@@ -11,7 +11,14 @@
         		<generated-value strategy="IDENTITY"/>
         	</id>
         	<basic name="descripcion" optional="false" >
+<<<<<<< HEAD
 				<column name="nombre_catalogo" length="32 "/>
+=======
+				<column name="DESCRIPCION" length="32 "/>
+            </basic>
+            <basic name="tipo" optional="false" >
+				<column name="TIPO_CATALOGO" length="32 "/>
+>>>>>>> c5800c1b77ebde6f053859b0e04dd124ed9e523c
             </basic>
 			</attributes>
     </mapped-superclass>
