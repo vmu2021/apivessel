@@ -10,7 +10,7 @@ import org.springframework.data.rest.core.annotation.RestResource;
 import com.vesselapi.entidades.ProductosCatalogo;
 
 
-@RepositoryRestResource(path="productos", collectionResourceRel="producto", itemResourceRel="productos")
+@RepositoryRestResource(path="productos", collectionResourceRel="productos", itemResourceRel="producto")
 public interface ProductoCatalogoDAO extends JpaRepository<ProductosCatalogo, Long>{
 
 //	@RestResource(path = "por-descripcion")

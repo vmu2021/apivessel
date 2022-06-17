@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.vesselapi.entidades.MenajeCatalogo;
 
-@RepositoryRestResource(path = "menajes", collectionResourceRel = "menaje",itemResourceRel = "menajes")
+@RepositoryRestResource(path = "menajes", collectionResourceRel = "menajes",itemResourceRel = "menaje")
 public interface MenajeCatalogoDAO extends JpaRepository<MenajeCatalogo, Long> {
 
 }
