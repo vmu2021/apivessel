@@ -6,12 +6,14 @@
 			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<mapped-superclass class="mdef.Catalogo"
-		access="FIELD">
+	<entity class="com.vesselapi.entidades.CatalogoConId" access="FIELD">
+		<table name="CATALOGOS" />
 		<attributes>
-			<one-to-many name="productos"
-				target-entity="com.vesselapi.entidades.ProductosCatalogo"
-				mapped-by="catalogo" />
+			<id name="id">
+				<generated-value strategy="IDENTITY" />
+			</id>
+
+
 		</attributes>
-	</mapped-superclass>
+	</entity>
 </entity-mappings>

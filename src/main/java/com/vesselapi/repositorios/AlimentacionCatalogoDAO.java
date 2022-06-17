@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import com.vesselapi.entidades.AlimentacionCatalogo;
 
-@RepositoryRestResource(path = "alimentacion", itemResourceRel = "alimento", collectionResourceRel = "alimentacion")
+@RepositoryRestResource(path = "alimentacion", collectionResourceRel = "alimento",itemResourceRel = "alimentacion")
 public interface AlimentacionCatalogoDAO extends JpaRepository<AlimentacionCatalogo, Long>{
 
 }

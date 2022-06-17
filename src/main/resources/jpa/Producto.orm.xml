@@ -1,51 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <entity-mappings
 	xmlns="http://java.sun.com/xml/ns/persistence/orm"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
-			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
+        http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<mapped-superclass class="com.vesselapi.Producto"
-		access="FIELD">
+	<mapped-superclass class="mdef.Producto"	access="FIELD">
 		<attributes>
-			<id name="idProducto">
-				<generated-value strategy="IDENTITY" />
-			</id>
-			<basic name="descripcion" optional="false">
-				<column name="DESCRIPCION" length="32 " />
-			</basic>
-			<basic name="precio" optional="false">
-				<column name="PRECIO" />
-			</basic>
-			<basic name="reciclable" optional="true">
-				<column name="RECICLABLE" />
-			</basic>
-			<basic name="refrigerado" optional="true">
-				<column name="REFRIGERABLE" />
-			</basic>
+			<many-to-one name="catalogo" target-entity="com.vesselapi.entidades.CatalogoConId">
+				<join-column name="CATALOGO" />
+			</many-to-one>
+		
 		</attributes>
 	</mapped-superclass>
-=======
-<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
-			     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
-			     				     http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
-			     version="1.0">
-			     
-    <mapped-superclass class="com.vesselapi.Producto" access="FIELD">
-        <attributes>
-			<id name="id">
-				<generated-value strategy ="IDENTITY"/>
-            </id>
-        	<basic name="descripcion" optional="false" >
-				<column name="DESCRIPCION" length="32 "/>
-            </basic>
-			<basic name="precio" optional="false" >
-				<column name="PRECIO" length="32 "/>
-            </basic>			
-        </attributes>
-    </mapped-superclass>
->>>>>>> c5800c1b77ebde6f053859b0e04dd124ed9e523c
+
 </entity-mappings>

@@ -10,11 +10,50 @@ import javax.persistence.Table;
 
 import mdef.*;
 
-@Entity
-@Table(name = "CATALOGOS")
+//@Entity
+//@Table(name = "CATALOGO")
 public class CatalogoConId extends Catalogo {
 
-	@OneToMany(cascade = CascadeType.ALL, targetEntity = ProductosCatalogo.class, mappedBy = "catalogo")
-	private Collection<ProductosCatalogo> productos = new ArrayList<ProductosCatalogo>();
+	private long id;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	
+	@Override
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = ProductosCatalogo.class, mappedBy = "catalogo")	
+	public Collection<Producto> getProductos() {		
+		return super.getProductos();
+	}
+
+	@Override
+	public String getDescripcion() {
+		return super.getDescripcion();
+	}
+
+	@Override
+	public void setDescripcion(String descripcion) {
+		super.setDescripcion(descripcion);
+	}
+	
+
+
+	public CatalogoConId() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "CatalogoConId [getId()=" + getId() + ", getDescripcion()=" + getDescripcion() + ", getProductos()="
+				+ getProductos() + "]";
+	}
+
+	
+
+	
 
 }

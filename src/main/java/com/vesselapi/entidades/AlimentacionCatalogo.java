@@ -5,33 +5,52 @@ import javax.persistence.AccessType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import mdef.AlimentacionInterfaz;
 
-@Entity
-//@Table(name ="ALIMENTACION")
-@Access(value = AccessType.FIELD)
-@DiscriminatorValue("ALIMENTACION")
+
 public class AlimentacionCatalogo extends ProductosCatalogo implements AlimentacionInterfaz {
-
-	@Column(name = "REFRIGERADO")
+	
+	@Column(name = "REFRIGERABLE")	
 	private boolean refrigerable;
-
-	@Override
-	public boolean isRefrigerado() {
-		return false;
+	
+	public boolean isRefrigerable() {
+		return refrigerable;
 	}
 
-	@Override
-	public void setRefrigerado(boolean refrigerado) {
-
+	public void setRefrigerable(boolean refrigerable) {
+		this.refrigerable = refrigerable;
 	}
 
 	public AlimentacionCatalogo() {
 	}
 
-	public AlimentacionCatalogo(long id, String descripcion, double precio) {
-		super(id, descripcion, precio);
+	@Override
+	public boolean isRefrigerado() {
+		// TODO Auto-generated method stub
+		return false;
 	}
+
+	@Override
+	public void setRefrigerado(boolean refrigerado) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getDescripcionProducto() {
+		// TODO Auto-generated method stub
+		return super.getDescripcionProducto();
+	}
+
+	@Override
+	public void setDescripcionProducto(String descripcionProducto) {
+		// TODO Auto-generated method stub
+		super.setDescripcionProducto(descripcionProducto);
+	}
+
+	
+
 
 }
