@@ -7,11 +7,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 
-import com.vesselapi.entidades.ProductosCatalogo;
+import com.vesselapi.entidades.ProductoConId;
 
 
 @RepositoryRestResource(path="productos", collectionResourceRel="productos", itemResourceRel="producto")
-public interface ProductoCatalogoDAO extends JpaRepository<ProductosCatalogo, Long>{
+public interface ProductoCatalogoDAO extends JpaRepository<ProductoConId, Long>{
 
 //	@RestResource(path = "por-descripcion")
 //	List<ProductosCatalogo> findByDescripcion(@Param("descripcion")String descripcion);
