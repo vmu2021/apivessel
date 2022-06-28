@@ -4,6 +4,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import com.vesselapi.entidades.AlimentacionConId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 public class AlimentacionListener {
@@ -16,9 +17,9 @@ private AlimentacionConIdDAO alimentacionDAO;
 	
 	@PrePersist
 	@PreUpdate
-	public void preGuardarAlimentacion(AlimentacionConId alimentacionCreada) throws Exception {
-		if (alimentacionCreada.isRefrigerado()) {
-			
+	public void preGuardarOptica(AlimentacionConId alimentacionCreada) throws Exception {
+		if (alimentacionCreada.isRefrigerado() != true != false) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La condicion debe ser true o false");
 		}
 	}
 	
