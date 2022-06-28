@@ -6,6 +6,8 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 
+import com.vesselapi.repositorios.MenajeListener;
+
 import mdef.MenajeInterfaz;
 
 

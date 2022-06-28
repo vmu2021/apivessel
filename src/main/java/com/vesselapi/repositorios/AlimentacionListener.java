@@ -23,4 +23,11 @@ private AlimentacionConIdDAO alimentacionDAO;
 		}
 	}
 	
+	@PreUpdate
+	public void preActualizarFarmacia(AlimentacionConId alimementacionActualizada) throws Exception {
+		if (alimementacionActualizada.isRefrigerado() != true != false) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El número de puntos SIGRE no puede ser negativo");
+		}
+	}
+	
 }
