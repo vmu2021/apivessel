@@ -8,12 +8,8 @@
 
 	<entity class="com.vesselapi.entidades.CatalogoConId" access="FIELD">
 		<table name="CATALOGOS" />
-		<attributes>
-			<id name="id">
-				<generated-value strategy="IDENTITY" />
-			</id>
-
-
-		</attributes>
+		        <attributes>
+        	<one-to-many name="productosCatalogo" target-entity="com.vesselapi.entidades.ProductoConId" mapped-by="asociacion" />
+        </attributes>
 	</entity>
 </entity-mappings>

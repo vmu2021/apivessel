@@ -20,7 +20,7 @@ public class AlimentacionConId extends ProductoConId implements AlimentacionInte
 
 	@Override
 	public boolean isRefrigerado() {
-		return false;
+		return refrigerado;
 	}
 
 	@Override

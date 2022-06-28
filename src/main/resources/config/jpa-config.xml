@@ -33,10 +33,12 @@
             <list>
 				<value>jpa/Catalogo.orm.xml</value>
 				<value>jpa/CatalogoConId.orm.xml</value>
+				<value>jpa/Alimentacion.orm.xml</value>
+				<value>jpa/AlimentacionConId.orm.xml</value>
 				<value>jpa/Producto.orm.xml</value>
-				<value>jpa/ProductosCatalogo.orm.xml</value>
-                <value>jpa/AlimentacionCatalogo.orm.xml</value>
-                <value>jpa/MenajeCatalogo.orm.xml</value>
+				<value>jpa/ProductoConId.orm.xml</value>
+                <value>jpa/Menaje.orm.xml</value>
+                <value>jpa/MenajeConId.orm.xml</value>
 			</list>
         </property>
 	</bean>

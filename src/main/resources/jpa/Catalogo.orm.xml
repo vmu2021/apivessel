@@ -9,9 +9,12 @@
 	<mapped-superclass class="mdef.Catalogo"
 		access="FIELD">
 		<attributes>
-			<one-to-many name="productos"
-				target-entity="com.vesselapi.entidades.ProductosCatalogo"
-				mapped-by="catalogo" />
-		</attributes>
+        	<id name="id">
+        		<generated-value strategy="IDENTITY"/>
+        	</id>
+            <basic name="descripcion" optional="false" >
+				<column name="NOMBRE" length="32 "/>
+            </basic>
+        </attributes>
 	</mapped-superclass>
 </entity-mappings>

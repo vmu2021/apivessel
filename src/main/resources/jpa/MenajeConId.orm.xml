@@ -6,11 +6,12 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<entity class="com.vesselapi.entidades.AlimentacionCatalogo" access="FIELD">
-		<discriminator-value>Alimentacion</discriminator-value>
+	<entity class="com.vesselapi.entidades.MenajeConId" access="FIELD">
 		<attributes>
-
-		</attributes>
+        	<basic name="reciclable" optional="false" >
+				<column name="RECICLABLE" length="32 "/>
+            </basic>
+        </attributes>
 	</entity>
 
 </entity-mappings>

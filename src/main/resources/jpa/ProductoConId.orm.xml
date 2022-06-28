@@ -6,19 +6,13 @@
         http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
 	version="1.0">
 
-	<mapped-superclass class="mdef.Producto"
+	<mapped-superclass class="com.vesselapi.entidades.ProductoConId"
 		access="FIELD">
 		<attributes>
-			<id name="id">
-				<generated-value strategy="IDENTITY" />
-			</id>
-			<basic name="descripcion" optional="false">
-				<column name="DESCRIPCION" length="32 " />
-			</basic>
-			<basic name="precio" optional="false">
-				<column name="PRECIO" length="32 " />
-			</basic>
-		</attributes>
+        	<many-to-one name="catalogo" optional="false" fetch="LAZY"><!-- fetch="LAZY">-->
+                <join-column name="ID_CATALOGO"/>
+            </many-to-one>
+        </attributes>
 	</mapped-superclass>
 
 </entity-mappings>

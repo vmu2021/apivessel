@@ -11,7 +11,7 @@ import com.vesselapi.entidades.CatalogoConId;
 
 
 @RepositoryRestResource(path="catalogos", collectionResourceRel="catalogos", itemResourceRel="catalogo")
-public interface CatalogoConIdDAO extends JpaRepository<CatalogoConId, Long> {
+public interface CatalogoConIdDAO extends JpaRepository<CatalogoConId, Long>, CatalogoConIdDAOCustom {
 
 	@RestResource(exported = false)
 	void delete(CatalogoConId catalogo);

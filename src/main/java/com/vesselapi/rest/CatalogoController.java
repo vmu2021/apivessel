@@ -1,4 +1,5 @@
 package com.vesselapi.rest;
+
 import java.util.List;
 import java.util.Set;
 
@@ -17,20 +18,19 @@ import com.vesselapi.repositorios.CatalogoConIdDAO;
 public class CatalogoController {
 
 	private CatalogoConIdDAO catalogoDao;
-	
+
 	public CatalogoController(CatalogoConIdDAO catalogoDao) {
 		this.catalogoDao = catalogoDao;
 	}
-	
-	@GetMapping("/asociaciones/search/por-tipo-negocios")
-	  @ResponseBody
-	  public CollectionModel<PersistentEntityResource> getCatalogosConProductos(
-	      @RequestParam("tieneAlimentacion") boolean tieneAlimentacion, 
-	      @RequestParam("tieneMenahe") boolean tieneMenaje,
-	      PersistentEntityResourceAssembler assembler) {
-	    
-	    Set<CatalogoConId> catalogos = catalogoDao.getCatalogosConProductos(tieneAlimentacion, tieneMenaje);
-	    
-	    return assembler.toCollectionModel(catalogos);
-	  }  
+
+	@GetMapping("/catalogos/search/por-tipo-producto")
+	@ResponseBody
+	public CollectionModel<PersistentEntityResource> getCatalogosConProductos(
+			@RequestParam("tieneAlimentacion") boolean tieneAlimentacion,
+			@RequestParam("tieneMenaje") boolean tieneMenaje, PersistentEntityResourceAssembler assembler) {
+
+		Set<CatalogoConId> catalogos = catalogoDao.getCatalogosConProductos(tieneAlimentacion,tieneMenaje);
+
+		return assembler.toCollectionModel(catalogos);
+	}
 }
