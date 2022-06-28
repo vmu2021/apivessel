@@ -6,7 +6,6 @@ import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 @ImportResource({ "classpath:config/jpa-config.xml" })
-
 public class VesselapiApplication {
 
 	public static void main(String[] args) {

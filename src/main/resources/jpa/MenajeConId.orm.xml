@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-mappings
-	xmlns="http://java.sun.com/xml/ns/persistence/orm"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm 
-        http://java.sun.com/xml/ns/persistence/orm_1_0.xsd"
-	version="1.0">
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+                                     http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd"
+	version="2.2">
 
-	<entity class="com.vesselapi.entidades.MenajeConId" access="FIELD">
+	<entity class="com.vesselapi.entidades.MenajeConId"
+		access="FIELD">
+		<entity-listeners>
+			<entity-listener
+				class="com.vesselapi.repositorios.MenajeListener">
+				<pre-persist method-name="preGuardarMenaje"></pre-persist>
+				<pre-update method-name="preActualizarMenaje"></pre-update>
+			</entity-listener>
+		</entity-listeners>
 		<attributes>
-        	<basic name="reciclable" optional="false" >
-				<column name="RECICLABLE" length="32 "/>
-            </basic>
-        </attributes>
+
+			<basic name="reciclable" optional="false">
+				<column name="RECICLABLE" length="10"></column>
+			</basic>
+		</attributes>
 	</entity>
 
 </entity-mappings>

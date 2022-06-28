@@ -21,7 +21,7 @@ import mdef.Producto;
 @DiscriminatorColumn(name = "TIPO_PRODUCTO", discriminatorType = DiscriminatorType.STRING)
 public class ProductoConId extends Producto {
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_CATALOGO", referencedColumnName = "ID")
+	@JoinColumn(name = "ID_CATALOGO", referencedColumnName = "id")
 	private CatalogoConId catalogo;
 
 	public CatalogoConId getCatalogo() {

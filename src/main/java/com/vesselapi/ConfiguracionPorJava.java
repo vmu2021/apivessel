@@ -16,6 +16,7 @@ import java.util.stream.Stream;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.RepositorySearchesResource;
 import org.springframework.hateoas.Link;
@@ -31,6 +32,7 @@ import com.vesselapi.entidades.CatalogoConId;
 import com.vesselapi.rest.CatalogoController;
 
 @Configuration
+@PropertySource({"classpath:config/rest.properties", "classpath:config/jackson.properties"})
 @ComponentScan("com.vesselapi")
 public class ConfiguracionPorJava {
 	@Bean
@@ -56,42 +58,42 @@ public class ConfiguracionPorJava {
 	}
 
 	@Bean
-	  RepresentationModelProcessor<RepositorySearchesResource> addSearchLinks(RepositoryRestConfiguration config) {
-	      Map<Class<?>, Class<?>> controllersRegistrados = new HashMap<>();
-	      
-	      controllersRegistrados.put(CatalogoConId.class, CatalogoController.class);
+	  RepresentationModelProcessor<RepositorySearchesResource> addSearchLinks(
+	      RepositoryRestConfiguration config) {
+	    Map<Class<?>, Class<?>> controllersRegistrados = new HashMap<>();
 
-	      return new RepresentationModelProcessor<RepositorySearchesResource>() {
+	    controllersRegistrados.put(CatalogoConId.class, CatalogoController.class);
+	    return new RepresentationModelProcessor<RepositorySearchesResource>() {
 
-	          @Override
-	          public RepositorySearchesResource process(RepositorySearchesResource searchResource) {
-	              if (controllersRegistrados.containsKey(searchResource.getDomainType())) {
-	                  Method[] metodos = controllersRegistrados.get(searchResource.getDomainType()).getDeclaredMethods();
-	                  for (Method m : metodos) {
-	                      if (!m.isAnnotationPresent(ResponseBody.class)) {
-	                          continue;
-	                      }
-	                      try {
-	                          URI uri = linkTo(m).toUri();
-	                          String path = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(), uri.getPort(),
-	                                  config.getBasePath() + uri.getPath(), null, null).toString();
-	                          path = URLDecoder.decode(path, "UTF-8");
-	                          String requestParams = Stream.of(m.getParameters())
-	                                  .filter(p -> p.isAnnotationPresent(RequestParam.class))
-	                                  .map(Parameter::getName)
-	                                  .collect(Collectors.joining(","));
-	                          searchResource.add(Link.of(path + "{?" + requestParams + "}", m.getName()));
-	                      } catch (Exception e) {
-	                          e.printStackTrace();
-	                      }
-	                  }
-	              }
 
-	              return searchResource;
+	      @Override
+	      public RepositorySearchesResource process(RepositorySearchesResource searchResource) {
+	        if (controllersRegistrados.containsKey(searchResource.getDomainType())) {
+	          Method[] metodos =
+	              controllersRegistrados.get(searchResource.getDomainType()).getDeclaredMethods();
+	          for (Method m : metodos) {
+	            if (!m.isAnnotationPresent(ResponseBody.class)) {
+	              continue;
+	            }
+	            try {
+	              URI uri = linkTo(m).toUri();
+	              String path = new URI(uri.getScheme(), uri.getUserInfo(), uri.getHost(),
+	                  uri.getPort(), config.getBasePath() + uri.getPath(), null, null).toString();
+	              path = URLDecoder.decode(path, "UTF-8");
+	              String requestParams = Stream.of(m.getParameters())
+	                  .filter(p -> p.isAnnotationPresent(RequestParam.class)).map(Parameter::getName)
+	                  .collect(Collectors.joining(","));
+	              searchResource.add(Link.of(path + "{?" + requestParams + "}", m.getName()));
+	            } catch (Exception e) {
+	              e.printStackTrace();
+	            }
 	          }
-
-	      };
+	        }
+	        return searchResource;
+	      }
+	    };
 	  }
+
 	
 	
 }

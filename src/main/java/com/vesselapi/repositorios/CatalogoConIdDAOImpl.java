@@ -19,7 +19,6 @@ import com.vesselapi.entidades.ProductoConId;
 @Transactional(readOnly = true)
 public class CatalogoConIdDAOImpl implements CatalogoConIdDAOCustom {
 
-	@Autowired
 	  CatalogoConIdDAO catalogoDao;
 	  AlimentacionConIdDAO alimentacionDao;
 	  MenajeConIdDAO menajeDao;
@@ -27,8 +26,8 @@ public class CatalogoConIdDAOImpl implements CatalogoConIdDAOCustom {
 	
 
 	 @Autowired
-	 public CatalogoConIdDAOImpl(@Lazy CatalogoConIdDAO catalogoConIdDAO, 
-		      AlimentacionConIdDAO alimentacionConIdDAO, MenajeConIdDAO menajeConIdDAO,
+	 public CatalogoConIdDAOImpl(@Lazy CatalogoConIdDAO catalogoConIdDAO, @Lazy
+		      AlimentacionConIdDAO alimentacionConIdDAO, @Lazy MenajeConIdDAO menajeConIdDAO, @Lazy 
 		      ProductoConIdDAO productoConIdDAO) {
 		 this.catalogoDao = catalogoConIdDAO;
 		 this.alimentacionDao = alimentacionConIdDAO;

@@ -5,11 +5,16 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import mdef.Catalogo;
 
 @Entity
+@Table(name="CATALOGOS")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class CatalogoConId extends Catalogo {
 	
 	  private List<ProductoConId> productosCatalogo = new ArrayList<>();
@@ -29,11 +34,10 @@ public class CatalogoConId extends Catalogo {
 	  }
 
 	public CatalogoConId() {
-		super(null);
 	}
 
-	public CatalogoConId(String nombre) {
-		super(nombre);
+	public CatalogoConId(String descripcion) {
+		super(descripcion);
 	}
 	  
 	 

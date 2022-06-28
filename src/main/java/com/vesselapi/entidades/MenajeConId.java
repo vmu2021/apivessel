@@ -21,7 +21,7 @@ public class MenajeConId extends ProductoConId implements MenajeInterfaz {
 
 	@Override
 	public boolean isReciclable() {
-		return false;
+		return reciclable;
 	}
 
 	@Override
