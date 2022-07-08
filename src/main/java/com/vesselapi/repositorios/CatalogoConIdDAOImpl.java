@@ -46,6 +46,7 @@ public class CatalogoConIdDAOImpl implements CatalogoConIdDAOCustom {
 	    List<AlimentacionConId> alimentaciones = alimentacionDao.findAll();
 	    List<MenajeConId> menajes = menajeDao.findAll();
 	    
+	    
 	    if (tieneAlimentacion && tieneMenaje) {      
 	      for (AlimentacionConId alimentacion : alimentaciones) {
 	        catalogosFiltrados.add(alimentacion.getCatalogo());

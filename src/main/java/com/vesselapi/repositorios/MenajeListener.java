@@ -24,16 +24,11 @@ public class MenajeListener {
 
 	@PrePersist
 	public void preGuardarMenaje(MenajeConId menajeCreado) throws Exception {
-		if (menajeCreado.isReciclable() != true != false) {
+		if (menajeCreado.getPrecio() < 0)  {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-					"La condicion de reciclable tiene que ser true o false");
+					"El precio tiene que ser mayor que 0");
 		}
 	}
 	
-	@PreUpdate
-	public void preActualizarMenaje(MenajeConId menajeActualizado) throws Exception {
-		if (menajeActualizado.isReciclable() != true != false) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La condicion de reciclable tiene que ser true o false");
-		}
-	}
+	
 }

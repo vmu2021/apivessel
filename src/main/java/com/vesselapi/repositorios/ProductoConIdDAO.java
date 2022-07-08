@@ -10,6 +10,5 @@ import com.vesselapi.entidades.ProductoConId;
 
 @RepositoryRestResource(path = "productos", itemResourceRel = "producto", collectionResourceRel = "productos")
 public interface ProductoConIdDAO extends JpaRepository<ProductoConId, Long> {
-	@RestResource(path="por-nombre")
-	  List<ProductoConId> findByNombreIgnoreCase(String txt);
+	
 }

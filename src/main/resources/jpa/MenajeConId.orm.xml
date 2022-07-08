@@ -12,8 +12,7 @@
 			<entity-listener
 				class="com.vesselapi.repositorios.MenajeListener">
 				<pre-persist method-name="preGuardarMenaje"></pre-persist>
-				<pre-update method-name="preActualizarMenaje"></pre-update>
-			</entity-listener>
+				</entity-listener>
 		</entity-listeners>
 		<attributes>
 

@@ -22,17 +22,11 @@ public class AlimentacionListener {
 
 	@PrePersist
 	public void preGuardarAlimentacion(AlimentacionConId alimentacionCreada) throws Exception {
-		if (alimentacionCreada.isRefrigerado() != true != false) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La condicion debe ser true o false");
+		if (alimentacionCreada.getPrecio() < 0) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El precio tiene que ser mayor que 0");
 		}
 	}
 
-	@PreUpdate
-	public void preActualizarAlimentacion(AlimentacionConId alimementacionActualizada) throws Exception {
-		if (alimementacionActualizada.isRefrigerado() != true != false) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
-					"El número de puntos SIGRE no puede ser negativo");
-		}
-	}
+	
 
 }

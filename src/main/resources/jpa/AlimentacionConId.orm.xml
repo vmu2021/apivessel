@@ -12,8 +12,7 @@
 			<entity-listener
 				class="com.vesselapi.repositorios.AlimentacionListener">
 				<pre-persist method-name="preGuardarAlimentacion"></pre-persist>
-				<pre-update method-name="preActualizarAlimentacion"></pre-update>
-			</entity-listener>
+				</entity-listener>
 		</entity-listeners>
 		<attributes>
 			<basic name="refrigerado" optional="false">
